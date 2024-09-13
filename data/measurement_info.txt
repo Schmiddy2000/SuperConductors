@@ -1,0 +1,32 @@
+Legend:
+RT: Room Temperature
+N2: Liquid Nitrogen (-196)
+C: Cooling
+W: Warming
+x -> y: from x to y
+Structure: Type, Process, TemperatureRange, Time, TimeStep
+
+Metadata:
+- Current: 135.0 mA - 135.5 mA
+
+1: Calibration, C, RT -> 0, 20s, 200ms
+2: Calibration, W, 0 -> RT, 600s, 200ms
+3: Calibration, C, RT -> 0, 40s, 200ms
+4: Calibration, W, 0 -> RT, 400s, 200ms
+5:
+6:
+7:
+8: W, -196 -> RT,
+9: Wire, C, RT -> N2, xxs, 20ms
+10: Wire, W, N2 -> RT, 1500s, 20ms
+11: Calibration Conductor, C, RT -> 0, 30s, 20ms, rather trash
+12: Calibration Conductor, C, RT -> 0, 45s, 20ms
+13: Calibration Conductor, W, 0 -> RT, 300s, 20ms
+14: Calibration Conductor, C, RT -> N2, 45s, 20ms
+15: Calibration Conductor, W, N2 -> RT, 1800s, 20ms
+16:
+17: Calibration Conductor, W, N2 -> RT, 1200s, 20ms
+18: Calibration Conductor, C, RT -> 0, 400s, 20ms
+
+Additional information:
+18: Stirred the water a bit at approx. 100s and 450s
