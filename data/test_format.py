@@ -13,7 +13,9 @@ def get_path(index: int):
     return base_path + f"Messung_{index}.csv"
 
 
-df = pd.read_csv(get_path(10))
+df = pd.read_csv(get_path(25))
+
+print(df.columns)
 
 
 columns = ['Zeit t / s', 'Spannung U_A1 / V']
@@ -61,7 +63,7 @@ A_fit, D_fit, E_fit = popt
 
 # Plot the data and the fit
 plt.plot(t_data, y_data, label="Data")
-plt.plot(t_data, model_func(t_data, *popt), label="Fitted Curve")
+# plt.plot(t_data, model_func(t_data, *popt), label="Fitted Curve")
 # plt.axvline(x=t0_fit, color='r', linestyle='--', label=f'Transition Time t0 = {t0_fit:.2f} s')
 plt.legend()
 plt.xlabel("Time (ms)")

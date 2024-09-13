@@ -1,6 +1,6 @@
 Legend:
-RT: Room Temperature
-N2: Liquid Nitrogen (-196)
+RT: Room Temperature (around 22/23 degrees)
+N2: Liquid Nitrogen (-196 degrees)
 C: Cooling
 W: Warming
 x -> y: from x to y
@@ -8,6 +8,8 @@ Structure: Type, Process, TemperatureRange, Time, TimeStep
 
 Metadata:
 - Current: 135.0 mA - 135.5 mA
+- Current platinum resistor: 51.1 - 51.2 micro Amps, also 0.48 mA???
+- Wire: Aluminum (looks)
 
 1: Calibration, C, RT -> 0, 20s, 200ms
 2: Calibration, W, 0 -> RT, 600s, 200ms
@@ -27,6 +29,32 @@ Metadata:
 16:
 17: Calibration Conductor, W, N2 -> RT, 1200s, 20ms
 18: Calibration Conductor, C, RT -> 0, 400s, 20ms
+19:
+20: Conductor T_c analysis, CW, T_c ± delta T <-> T_c ± delta T, 1500s, 20ms
+21: Conductor on table at RT
+22: Conductor on table at RT
+23: Long Wire, C, RT -> 0, xxs, 20ms
+24: Long Wire, W, 0 -> RT, 600s, 20ms
+25: Long Wire, C, RT -> N2, 600s, 20ms
+26: Long Wire, W, N2 -> RT, 1600s, 20ms
+27: Test Temperature Inconsistencies for Conductor
 
 Additional information:
 18: Stirred the water a bit at approx. 100s and 450s
+
+
+Measurements using metallic tape measure with 1mm divisions. Placed horizontally on table and then straightened wire
+pieces on top in the 'ditch'
+
+Own measurement head:
+Short aluminum wire:
+Left side: 3.6 cm
+Middle: 3.1 cm
+Right side: 4.0 cm
+
+Long aluminum wire:
+Left side: 5.0 cm
+Middle: 17.1 cm
+Right side: 5.8 cm
+
+
