@@ -1,0 +1,4 @@
+1) Short wire:
+- Voltage at N2: 191.7 mV
+- Voltage at 0: 0.45 mV
+- Voltage at RT: -12 mV (5)
