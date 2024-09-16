@@ -23,4 +23,5 @@ def R_0_coefficient(temperature: int):
 lin_temp = np.linspace(-200, 0, 250)
 
 plt.plot(lin_temp, 100 * R_0_coefficient(lin_temp))
+plt.plot()
 plt.show()
