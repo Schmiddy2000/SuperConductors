@@ -2,3 +2,10 @@
 - Voltage at N2: 191.7 mV
 - Voltage at 0: 0.45 mV
 - Voltage at RT: -12 mV (5)
+
+2) Long wire:
+
+3) Conductor:
+- N2: 191.1 mV
+- 0: (0.2 ± 0.2) mV
+- RT: -16.35 mV

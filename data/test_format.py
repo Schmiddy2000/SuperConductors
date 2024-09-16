@@ -14,7 +14,7 @@ def get_path(index: int):
     return base_path + f"Messung_{index}.csv"
 
 
-df = pd.read_csv(get_path(10))
+df = pd.read_csv(get_path(16))
 
 print(df.columns)
 
@@ -32,7 +32,7 @@ df = df[columns]
 x = df[columns[0]].to_numpy()
 y = df[columns[1]].to_numpy()
 
-y = wire_voltage_to_temperature(y)
+# y = wire_voltage_to_temperature(y)
 
 x_lin = np.linspace(-0.1 * max(x), 1.1 * max(x))
 
@@ -54,16 +54,16 @@ def lin_func(x, a, b):
 # Plot the original data and the regression line
 plt.figure(figsize=(12, 5))
 plt.scatter(x, y, color='green', s=5, label='Data Points')
-plt.plot(x_lin, lin_func(x_lin, slope, intercept), color='black', label='Regression Line')
-plt.plot(x_lin, lin_func(x_lin, slope, intercept + 1.25), color='red', ls='--', label='Offset of +1.25mV')
-plt.plot(x_lin, lin_func(x_lin, slope, intercept - 2.25), color='orange', ls='--',  label='Offset of -2.25mV')
+# plt.plot(x_lin, lin_func(x_lin, slope, intercept), color='black', label='Regression Line')
+# plt.plot(x_lin, lin_func(x_lin, slope, intercept + 1.25), color='red', ls='--', label='Offset of +1.25mV')
+# plt.plot(x_lin, lin_func(x_lin, slope, intercept - 2.25), color='orange', ls='--',  label='Offset of -2.25mV')
 plt.xlabel('Time in [s]', fontsize=13)
 plt.ylabel('Voltage in [mV]', fontsize=13)
 plt.title('Linear regression over voltage fluctuations around room temperature', fontsize=16)
 plt.legend()
-plt.xlim(-25, 325)
+# plt.xlim(-25, 325)
 plt.tight_layout()
-plt.savefig('current_fluctuation_visualization.png', dpi=200)
+# plt.savefig('current_fluctuation_visualization.png', dpi=200)
 plt.show()
 
 
