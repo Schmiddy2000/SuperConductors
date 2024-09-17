@@ -14,7 +14,7 @@ def get_path(index: int):
     return base_path + f"Messung_{index}.csv"
 
 
-df = pd.read_csv(get_path(16))
+df = pd.read_csv(get_path(10))
 
 print(df.columns)
 
@@ -26,13 +26,21 @@ def wire_voltage_to_temperature(voltages: np.array) -> np.array:
     return -(voltages - voltage_at_0) * 196 / (voltage_at_R_min - voltage_at_0)
 
 
-columns = ['Zeit t / s', 'Spannung U_A1 / V']
+columns = ['Zeit t / s', 'Spannung U_A1 / V', 'Spannung U_B1 / V']
 df = df[columns]
 
-x = df[columns[0]].to_numpy()
-y = df[columns[1]].to_numpy()
+x = df[columns[1]].to_numpy()
+y = df[columns[2]].to_numpy() / 135e-3
 
-# y = wire_voltage_to_temperature(y)
+x = wire_voltage_to_temperature(x)
+
+remove_indices = [int((50 * val) / 100) for val in range(1926, 1940) if val % 2 == 0]
+remove_indices_2 = [i for i in range(0, 12 * 50)]
+
+print(remove_indices)
+
+#x = np.delete(x, remove_indices)
+#y = np.delete(y, remove_indices)
 
 x_lin = np.linspace(-0.1 * max(x), 1.1 * max(x))
 
@@ -57,19 +65,18 @@ plt.scatter(x, y, color='green', s=5, label='Data Points')
 # plt.plot(x_lin, lin_func(x_lin, slope, intercept), color='black', label='Regression Line')
 # plt.plot(x_lin, lin_func(x_lin, slope, intercept + 1.25), color='red', ls='--', label='Offset of +1.25mV')
 # plt.plot(x_lin, lin_func(x_lin, slope, intercept - 2.25), color='orange', ls='--',  label='Offset of -2.25mV')
-plt.xlabel('Time in [s]', fontsize=13)
-plt.ylabel('Voltage in [mV]', fontsize=13)
-plt.title('Linear regression over voltage fluctuations around room temperature', fontsize=16)
+plt.xlabel('Temperature in [°C]', fontsize=13)
+plt.ylabel(r'Resistance in [$\Omega$]', fontsize=13)
+plt.title('Heating process from -196° to room temperature', fontsize=16)
 plt.legend()
 # plt.xlim(-25, 325)
 plt.tight_layout()
-# plt.savefig('current_fluctuation_visualization.png', dpi=200)
+# plt.savefig('resistance_short_wire_from_N2_to_RT.png', dpi=200)
 plt.show()
 
 
-# 19.26 -> 19.4
-# remove_indices = [int((50 * val) / 100) for val in range(1926, 1940) if val % 2 == 0]
-# remove_indices += [i for i in range(0, 12 * 50)]
+# 19.26 -> 19.
+
 #
 # print(remove_indices)
 

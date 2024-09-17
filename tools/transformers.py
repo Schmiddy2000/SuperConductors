@@ -3,18 +3,27 @@ from gc import freeze
 
 import numpy as np
 
-from typing import List, Optional
+from typing import List, Optional, Tuple, Any
 
 
 def slice_measurement_data(time_array: np.array,
                            data: List[np.array],
                            start_time: Optional[float],
                            stop_time: Optional[float]
-                           ) -> List[np.array]:
+                           ) -> Tuple[np.array, ...]:
     """
 
     """
+    start_index = 0
+    stop_index = len(time_array) - 1
 
+    while time_array[start_index] < start_time:
+        start_index += 1
+
+    while time_array[stop_index] > stop_time:
+        stop_index -= 1
+
+    return tuple([time_array[start_index:stop_index]] + [data_set[start_index:stop_index] for data_set in data])
 
 
 
