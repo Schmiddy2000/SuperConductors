@@ -15,13 +15,13 @@ Metadata:
 2: Calibration, W, 0 -> RT, 600s, 200ms
 3: Calibration, C, RT -> 0, 40s, 200ms
 4: Calibration, W, 0 -> RT, 400s, 200ms
-5:
-6:
-7:
-8: W, -196 -> RT,
-9: Wire, C, RT -> N2, xxs, 20ms
+5: Calibration, C, RT -> N2, 30s, 200ms
+6: Calibration, W N2 -> RT, 1800s, 200ms
+7: Calibration, C, RT -> N2, 30s, 200ms
+8: Wire, W, -196 -> RT, 300s, 20ms
+9: Wire, C, RT -> N2, 60s, 20ms
 10: Wire, W, N2 -> RT, 1500s, 20ms
-11: Calibration Conductor, C, RT -> 0, 30s, 20ms, rather trash
+11: Calibration Conductor, C, RT -> 0, 30s, 20ms
 12: Calibration Conductor, C, RT -> 0, 45s, 20ms
 13: Calibration Conductor, W, 0 -> RT, 300s, 20ms
 14: Calibration Conductor, C, RT -> N2, 45s, 20ms

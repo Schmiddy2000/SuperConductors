@@ -14,7 +14,7 @@ def get_path(index: int):
     return base_path + f"Messung_{index}.csv"
 
 
-df = pd.read_csv(get_path(10))
+df = pd.read_csv(get_path(9))
 
 print(df.columns)
 
@@ -29,10 +29,10 @@ def wire_voltage_to_temperature(voltages: np.array) -> np.array:
 columns = ['Zeit t / s', 'Spannung U_A1 / V', 'Spannung U_B1 / V']
 df = df[columns]
 
-x = df[columns[1]].to_numpy()
-y = df[columns[2]].to_numpy() / 135e-3
+x = df[columns[0]].to_numpy()
+y = df[columns[1]].to_numpy()
 
-x = wire_voltage_to_temperature(x)
+# x = wire_voltage_to_temperature(x)
 
 remove_indices = [int((50 * val) / 100) for val in range(1926, 1940) if val % 2 == 0]
 remove_indices_2 = [i for i in range(0, 12 * 50)]

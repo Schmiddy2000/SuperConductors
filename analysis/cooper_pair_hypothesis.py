@@ -25,6 +25,8 @@ def conductor_voltage_to_temperature(voltages: np.array) -> np.array:
     return -(voltages - voltage_at_0) * 196 / (voltage_at_R_min - voltage_at_0)
 
 
+
+
 columns = ['Zeit t / s', 'Spannung U_A1 / V', 'Spannung U_B1 / V']
 df = df[columns]
 
